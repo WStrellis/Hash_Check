@@ -24,5 +24,3 @@ if len(sys.argv) < 4 or sys.argv[1] not in algorithms:
 # else:
 	# print("There is no account named %s" %(account))
 print(hashlib.md5(b"hello").hexdigest())
-#testing git
-#another git test
