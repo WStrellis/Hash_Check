@@ -4,8 +4,8 @@
 
 import sys 
 import hashlib
-algorithms = ['sha1()','sha224()','sha256()','sha384()','sha512()', \
-		      'blake2b()','blake2s()','md5()']
+algorithms = ['sha1','sha224','sha256','sha384','sha512', 
+		      'blake2b','blake2s','md5']
 
 alg = sys.argv[1]
 thing = sys.argv[2]
