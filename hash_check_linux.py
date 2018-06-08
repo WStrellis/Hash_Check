@@ -6,23 +6,30 @@ import sys
 import hashlib
 algorithms = ['sha1()','sha224()','sha256()','sha384()','sha512()', \
 		      'blake2b()','blake2s()','md5()']
+
+alg = sys.argv[1]
+thing = sys.argv[2]
+good = sys.argv[3]
+
+def getHash(alg,thing):
+	"""Calculates the hash value of "thing" using "alg". """
+	h = hashlib.new(alg)
+	h.update(thing)
+	return h.hexdigest()
+
+def checkHash(alg,thing,good):
+	""" Peforms the hash check"""
+	if getHash(alg,thing) == good:
+		print("Postitive Match")
+	else:
+		print("Error! {} sum of {} does not match {}".format(alg,thing,good))
+
 if len(sys.argv) < 4 or sys.argv[1] not in algorithms:
 	print('Usage: hash_check.py [algorithm] [file to hash] [correct hash]\n\
     \rUse [algorithm] to create a hash for [file to hash]. Compare the result\
  to [correct hash].\n \
-	 \rSupported algorithm arguments:\n\
-	 \r%s' %(' '.join(algorithms)))
-	# print(algorithms,end=None)
-	
+	 \rSupported algorithm arguments:\n\r%s' %(' '.join(algorithms)))
 
-	# sys.exit()
-
-# account = sys.argv[1].lower() # first command line arg is the account name
-
-# if account in passwords:
-	# print('Password for {} is: {}'.format(account,passwords.get(account)))
-# else:
-	# print("There is no account named %s" %(account))
-print(hashlib.md5(b"hello").hexdigest())
-#testing git
-#another git test
+# print(hashlib.md5(b"hello").hexdigest())
+ 
+checkHash(alg,thing,good)
