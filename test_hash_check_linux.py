@@ -1,6 +1,6 @@
 import unittest
 
-class TestAlgorithem(unittest.TestCase):
-    """ Tests to see if the algorithem is correctly formatted"""
+class TestAlgorithm(unittest.TestCase):
+    """ Tests to see if the algorithm is correctly formatted"""
 
     def test
