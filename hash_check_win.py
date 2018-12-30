@@ -2,6 +2,8 @@
 
 import hashlib, sys, os, argparse, io
 from hash_module import calcChecksum, getAlg
+from verify_module import verify
+from results_module import results
 
 
 def main():
@@ -39,7 +41,7 @@ def main():
     # store arguments in variables
     inFile = args.file
     alg = args.algorithm
-    key = args.key
+    inKey = args.key
     bSize = args.buffer
 
     # Set the correct hashing algorithm
@@ -49,38 +51,15 @@ def main():
     checkSum = calcChecksum(inFile, hashSelection, bSize)
 
     # Verify input file if key was given
-    verify(checkSum, key)
+    # if inKey != "":
+    verified = verify(checkSum, inKey)
 
-    # Output results
+    # Output results if a checksum was generated
     if checkSum:
-        results(inFile, alg, key, checkSum )
-
-    # print(inFile + '\n' + alg + '\n' + key)
+        results(inFile, alg, inKey, checkSum, verified )
 
 #End main()
     
-
-def verify(checkSum, key):
-    """
-    Compare the calculated checksum to the verification key
-    """
-    pass
-
-# End verify()
-
-def results(inFile, alg, key, checkSum ):
-    """
-    Display the results of the program
-    """
-    print(checkSum)
-    # If verbosity is specified:
-
-    # No verbosity
-    # print("\n{!s1} checksum : {!s2}".format( inFile, checkSum))
-
-# End results()
-
-
 
 if __name__ == '__main__':
     main()
