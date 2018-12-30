@@ -51,7 +51,6 @@ def main():
     checkSum = calcChecksum(inFile, hashSelection, bSize)
 
     # Verify input file if key was given
-    # if inKey != "":
     verified = verify(checkSum, inKey)
 
     # Output results if a checksum was generated
