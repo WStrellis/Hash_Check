@@ -60,7 +60,7 @@ def calcChecksum(inFi, a, bfs):
     Calculate the checksum of the input file
     """
     try:
-        with open(inFi, 'rb') as f:
+        with open(inFi, 'r+b') as f:
             data = f.read(bfs)
             a.update(data)
     #  Return an error if the file cannot be opened
