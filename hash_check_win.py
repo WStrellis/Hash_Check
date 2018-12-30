@@ -3,7 +3,6 @@
 import hashlib, sys, os, argparse
 
 
-
 def main():
 
     # *********************** Evaluate User Input *************
@@ -25,6 +24,12 @@ def main():
                          default= "",
                          help="A key used to verify the integrity of the input file")
 
+    # Buffer size 
+    parser.add_argument("-b", "--buffer",
+                         default=8096,
+                         type=int,
+                         help="The buffer size used to read the input file")
+
 
     # create  a list of arguments passed to the command line
     args = parser.parse_args()
@@ -33,11 +38,11 @@ def main():
     inFile = args.file
     alg = args.algorithm + "()"
     key = args.key
-    checkSum = ""
+    bSize = args.buffer
 
 
     #calculate the checksum
-    calcChecksum(inFile, alg)
+    checkSum = calcChecksum(inFile, alg, bSize)
 
     # Verify input file if key was given
     verify(checkSum, key)
@@ -49,12 +54,20 @@ def main():
 
 #End main()
     
-def calcChecksum(inFile, alg):
+def calcChecksum(inFi, a, bfs):
+# def calcChecksum():
     """
     Calculate the checksum of the input file
     """
-    # try to open the file, return an error if it fails
-    pass
+    try:
+        with open(inFi, 'rb') as f:
+            data = f.read(bfs)
+            a.update(data)
+    #  Return an error if the file cannot be opened
+    except IOError as msg:
+        print('%s: I/O error: %s\n' % (inFi, msg))
+    cs = a.hexdigest()
+    return cs
 
 #End calcChecksum()
 
@@ -73,8 +86,9 @@ def results(inFile, alg, key, checkSum ):
     # If verbosity is specified:
 
     # No verbosity
-    pass
-
+    print("""
+    \n{!s1} checksum : {!s2}
+    """).format( inFile, checkSum)
 # End results()
 
 
@@ -97,3 +111,7 @@ if __name__ == '__main__':
     #     return 1
     # out.write('%s %s\n' % (m.hexdigest(), filename))
     # return 0
+
+    # with open("D:\D_Documents\ch3_Debugging_Exercises.docx",mode='r+b') as f:
+	# data = f.read()
+	# hashlib.sha256(data).hexdigest()
