@@ -28,9 +28,16 @@ def calcChecksum(inFi, hashAlg, bufsiz):
     """
     try:
         with open(inFi, 'rb') as f:
-            data = f.read(bufsiz)
-            hashAlg.update(data)
+            # Read each byte of the file using the specified buffer size
+            while True:
+                data = f.read(bufsiz)
+                if not data:
+                    break
+                # add each section of bytes to the hash algorithm
+                hashAlg.update(data)
+            # Generate the checksum for the input file
             cksum = hashAlg.hexdigest()
         return cksum
+    # print any errors that occur
     except IOError as msg:
        print('\nI/O error: %s\n' % (msg))
