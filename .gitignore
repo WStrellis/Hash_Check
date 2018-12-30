@@ -1,1 +1,2 @@
-# Nothing I want to ignore yet
+__pycache__
+reference_program.py

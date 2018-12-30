@@ -1,9 +1,11 @@
-#! /usr/bin/env python3.6
+#! /usr/bin/env python3.7
 
-import hashlib, sys, os, argparse
+import hashlib, sys, os, argparse, io
+from hash_module import calcChecksum, getAlg
 
 
 def main():
+
 
     # *********************** Evaluate User Input *************
     parser = argparse.ArgumentParser(description="A program used to calculate checksum values for a file. It may also be used\
@@ -26,7 +28,7 @@ def main():
 
     # Buffer size 
     parser.add_argument("-b", "--buffer",
-                         default=8096,
+                         default= io.DEFAULT_BUFFER_SIZE,
                          type=int,
                          help="The buffer size used to read the input file")
 
@@ -36,40 +38,27 @@ def main():
 
     # store arguments in variables
     inFile = args.file
-    alg = args.algorithm + "()"
+    alg = args.algorithm
     key = args.key
     bSize = args.buffer
 
+    # Set the correct hashing algorithm
+    hashSelection = getAlg(alg)
 
     #calculate the checksum
-    checkSum = calcChecksum(inFile, alg, bSize)
+    checkSum = calcChecksum(inFile, hashSelection, bSize)
 
     # Verify input file if key was given
     verify(checkSum, key)
 
     # Output results
-    results(inFile, alg, key, checkSum )
+    if checkSum:
+        results(inFile, alg, key, checkSum )
 
-    print(inFile + '\n' + alg + '\n' + key)
+    # print(inFile + '\n' + alg + '\n' + key)
 
 #End main()
     
-def calcChecksum(inFi, a, bfs):
-# def calcChecksum():
-    """
-    Calculate the checksum of the input file
-    """
-    try:
-        with open(inFi, 'rb') as f:
-            data = f.read(bfs)
-            a.update(data)
-    #  Return an error if the file cannot be opened
-    except IOError as msg:
-        print('%s: I/O error: %s\n' % (inFi, msg))
-    cs = a.hexdigest()
-    return cs
-
-#End calcChecksum()
 
 def verify(checkSum, key):
     """
@@ -83,35 +72,15 @@ def results(inFile, alg, key, checkSum ):
     """
     Display the results of the program
     """
+    print(checkSum)
     # If verbosity is specified:
 
     # No verbosity
-    print("""
-    \n{!s1} checksum : {!s2}
-    """).format( inFile, checkSum)
+    # print("\n{!s1} checksum : {!s2}".format( inFile, checkSum))
+
 # End results()
 
 
 
 if __name__ == '__main__':
     main()
-
-    # def printsumfp(fp, filename, out=sys.stdout):
-    # m = md5()
-    # try:
-    #     while 1:
-    #         data = fp.read(bufsize)
-    #         if not data:
-    #             break
-    #         if isinstance(data, str):
-    #             data = data.encode(fp.encoding)
-    #         m.update(data)
-    # except IOError as msg:
-    #     sys.stderr.write('%s: I/O error: %s\n' % (filename, msg))
-    #     return 1
-    # out.write('%s %s\n' % (m.hexdigest(), filename))
-    # return 0
-
-    # with open("D:\D_Documents\ch3_Debugging_Exercises.docx",mode='r+b') as f:
-	# data = f.read()
-	# hashlib.sha256(data).hexdigest()
