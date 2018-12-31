@@ -14,7 +14,7 @@ A program that generates checksums of a file. It also accepts a key as an input.
 ---
 
 This is section describes how to add hash_check_win.py to your system path so that you can run it from any directory without entering the full path to the file.
-> hash_check someFile.exe 
+```hash_check someFile.exe```
 
 is much simpler than: 
 
@@ -31,10 +31,10 @@ is much simpler than:
     *The name of the .bat file is what you will use to invoke the program on the command line!*
 
     If you name the file "potatoes.bat" and it has the above line of code, then you would run hash_check_win.py in a terminal by typing:
-    > potatoes someFile.exe
+    ```potatoes someFile.exe```
 
-3. Press the Windows Key + R to open the "Run" prompt. Enter the following command:
-    > systempropertiesadvanced.exe
+3. Press the Windows Key + R to open the "Run" prompt. Enter the following command:  
+    systempropertiesadvanced.exe
 
     Alternatively, press the Windows Key + Pause Key to open the System window and the click "Advanced System Settings" on the left side.
 
