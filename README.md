@@ -2,13 +2,62 @@
 ---
 Hash Check
 
-##Lanuages Used:
+##Languages Used:
 ---
 Python 3.7
 
 ##Program Description:
 ---
 A program that generates checksums of a file. It also accepts a key as an input. If a key is entered the checksum will be compared to the key.
+
+##Windows Installation
+---
+
+This is section describes how to add hash_check_win.py to your system path so that you can run it from any directory without entering the full path to the file.
+> hash_check someFile.exe 
+is much simpler than:  
+> python C:/users/joe/python/scripts/hash_check_win.py someFile.exe  
+
+1. Fork this repository onto your local machine. Example file structure:
+> C:/ Users/ YourName/ hash_check/ theFilesForThisProgram
+
+2. Create a batch file using a text editor. Save it as "hash_check.bat" and save in a folder for batch files.  
+
+It must contain this line:  
+> @py.exe full\path\to\hash_check\hash_check_win.py %*    
+
+*The name of the .bat file is what you will use to invoke the program on the command line!*
+
+If you name the file "potatoes.bat" and it has the above line of code, then you would run hash_check_win.py in a terminal by typing:
+> potatoes someFile.exe
+
+3. Press the Windows Key + R to open the "Run" prompt. Enter the following command:
+> systempropertiesadvanced.exe
+
+Alternatively, press the Windows Key + Pause Key to open the System window and the click "Advanced System Settings" on the left side.
+
+4. Click "Environment Variables"
+
+5.  Within the "Environment Variables" window, click on the row with the variable "Path" under the "System Variables" section. You may also select "Path" under "User Variables for X" but the changes made will only effect that user.  
+
+After clicking on one of the rows with the "Path" variable click "Edit".
+
+6. This will bring up a new window with a list of directories that are on the selected "Path"( either "System" or "User").
+
+Click "New" and then enter the full path to the directory in which you store your .bat files. 
+Example:
+> C:\Users\YourName\my_batch_files\
+
+You do not need to enter file names. The "Path" variable is a list of directories the computer will search for a file when the file is not found in the current working directory.
+
+Then click "OK" on all of the system settings windows.
+
+7. Open a command terminal 
+
+
+##Usage:
+---
+
 
 ##Program Outline:
 ---
