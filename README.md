@@ -40,19 +40,21 @@ is much easier to type than:
 
     systempropertiesadvanced.exe  
 
-    ![alt text](s3://staranen-images-001/step1.jpg "Open Run prompt")
     ![alt text](https://s3.amazonaws.com/staranen-images-001/step1.jpg "Open Run prompt")
 
     Alternatively, press the Windows Key + Pause Key to open the System window and the click "Advanced System Settings" on the left side.  
 
-    ![alt text](s3://staranen-images-001/step1b.jpg "Open System Settings")  
-    ![alt text](https://s3.amazonaws.com/staranen-images-001/step1.jpg "Open System Settings")  
+    ![alt text](https://s3.amazonaws.com/staranen-images-001/step1b.jpg "Open System Settings")  
 
 4. Click "Environment Variables".  
+
+    ![alt text](https://s3.amazonaws.com/staranen-images-001/step2.jpg "Open Environment Variables")  
 
 5.  Within the "Environment Variables" window, click on the row with the variable "Path" under the "System Variables" section. You may also select "Path" under "User Variables for X" but the changes made will only effect that user.  
 
     After clicking on one of the rows with the "Path" variable click "Edit".  
+
+    ![alt text](https://s3.amazonaws.com/staranen-images-001/step3.jpg "Select Path and click Edit")  
 
 6. This will bring up a new window with a list of directories that are on the selected "Path"( either "System" or "User").  
 
@@ -62,11 +64,17 @@ is much easier to type than:
 
     You do not need to enter file names. The "Path" variable is a list of directories the computer will search for a file when the file is not found in the current working directory.  
 
+    ![alt text](https://s3.amazonaws.com/staranen-images-001/step4.jpg "Add the .bat folder to your system path")    
+
     Then click "OK" on all of the system settings windows.
 
 7. Open a command terminal by pressing Windows Key + R and then typing "cmd". Click "OK" or press Enter. This will open a terminal session.  
 
+    ![alt text](https://s3.amazonaws.com/staranen-images-001/step5.jpg "Open a terminal session")    
+
 8. Type "hash_check" or whatever you named the .bat file for this program and press enter. It should execute hash_check_win.py and display this output:  
+
+    ![alt text](https://s3.amazonaws.com/staranen-images-001/step6.jpg "Test the changes")    
 
     If you get the output:  
     `'hash_check' is not recognized as an internal or external command, operable program or batch file.`  
@@ -87,10 +95,3 @@ is much easier to type than:
 5. Call verify() from the verify_module.py. Store the result in the “valid” variable.
 6. If a checksum was successfully generated call the results() function from results_module.py to display the results of the program.
 
-s3://staranen-images-001/step1.jpg
-s3://staranen-images-001/step1b.png
-s3://staranen-images-001/step2.png
-s3://staranen-images-001/step3.png
-s3://staranen-images-001/step4.png
-s3://staranen-images-001/step5.jpg
-s3://staranen-images-001/step6.jpg
