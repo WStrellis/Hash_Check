@@ -9,7 +9,7 @@ def results(inFile, alg, k, ckSum, status, verbosity):
 
     # Input file/ NO key, VERBOSE output
     elif k == "" and verbosity :
-        print('{0} {1} checksum: {2}'.format(inFile,alg,ckSum))
+        print('{0} {1} Checksum: {2}'.format(inFile,alg,ckSum))
 
     # Input file AND key, default output
     elif k != "" and not verbosity :
