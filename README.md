@@ -44,17 +44,17 @@ is much easier to type than:
 
     Alternatively, press the Windows Key + Pause Key to open the System window and the click "Advanced System Settings" on the left side.  
 
-    ![alt text](https://s3.amazonaws.com/staranen-images-001/step1b.jpg "Open System Settings")  
+    ![alt text](https://s3.amazonaws.com/staranen-images-001/step1b.png "Open System Settings")  
 
 4. Click "Environment Variables".  
 
-    ![alt text](https://s3.amazonaws.com/staranen-images-001/step2.jpg "Open Environment Variables")  
+    ![alt text](https://s3.amazonaws.com/staranen-images-001/step2.png "Open Environment Variables")  
 
 5.  Within the "Environment Variables" window, click on the row with the variable "Path" under the "System Variables" section. You may also select "Path" under "User Variables for X" but the changes made will only effect that user.  
 
     After clicking on one of the rows with the "Path" variable click "Edit".  
 
-    ![alt text](https://s3.amazonaws.com/staranen-images-001/step3.jpg "Select Path and click Edit")  
+    ![alt text](https://s3.amazonaws.com/staranen-images-001/step3.png "Select Path and click Edit")  
 
 6. This will bring up a new window with a list of directories that are on the selected "Path"( either "System" or "User").  
 
@@ -64,7 +64,7 @@ is much easier to type than:
 
     You do not need to enter file names. The "Path" variable is a list of directories the computer will search for a file when the file is not found in the current working directory.  
 
-    ![alt text](https://s3.amazonaws.com/staranen-images-001/step4.jpg "Add the .bat folder to your system path")    
+    ![alt text](https://s3.amazonaws.com/staranen-images-001/step4.png "Add the .bat folder to your system path")    
 
     Then click "OK" on all of the system settings windows.
 
