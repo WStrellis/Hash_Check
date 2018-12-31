@@ -1,6 +1,7 @@
 #! /usr/bin/env python3.7
 
-import hashlib, sys, os, argparse, io
+import argparse, io
+
 from hash_module import calcChecksum, getAlg
 from verify_module import verify
 from results_module import results
@@ -20,7 +21,7 @@ def main():
     parser.add_argument("-a", "--algorithm",
                         choices=["sha1", "sha224", "sha256", "sha384", "sha512", "blake2b", "blake2s", "md5"],
                         default="sha256",
-                        help="The algorithm used to generate a checksum. Lowercase characters only. If unspecified, the default is sha256",)
+                        help="The algorithm used to generate a checksum. Lowercase characters only. If unspecified, the default algorithm is sha256",)
 
     # Verification key
     parser.add_argument("-k", "--key",
@@ -34,10 +35,13 @@ def main():
                          type=int,
                          help="The buffer size used to read the input file. If unspecified, the system's default buffer size will be used.")
 
+    # Verbosity
+    parser.add_argument("-v", "--verbose",
+                         help="Enable more detailed output messages.",
+                         action="store_true")
 
     # create  a list of arguments passed to the command line
     args = parser.parse_args()
-
 
     # Set the correct hashing algorithm
     hashSelection = getAlg(args.algorithm)
@@ -45,12 +49,12 @@ def main():
     #calculate the checksum
     checkSum = calcChecksum(args.file, hashSelection, args.buffer)
 
-    # Verify input file if key was given
-    verified = verify(checkSum, args.key)
+    # Validate input file. Will set 'valid' to 'False' if no verification key is entered.
+    valid = verify(checkSum, args.key)
 
     # Output results if a checksum was generated
     if checkSum:
-        results(args.file, args.algorithm, args.key, checkSum, verified )
+        results(args.file, args.algorithm, args.key.upper(), checkSum.upper(), valid, args.verbose )
 
 #End main()
     

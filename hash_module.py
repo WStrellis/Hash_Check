@@ -21,6 +21,7 @@ def getAlg(choice):
         return hashlib.blake2b()
     elif choice == 'blake2s':
         return hashlib.blake2s()
+    # end getAlg
 
 def calcChecksum(inFi, hashAlg, bufsiz):
     """
@@ -32,12 +33,13 @@ def calcChecksum(inFi, hashAlg, bufsiz):
             while True:
                 data = f.read(bufsiz)
                 if not data:
-                    break
+                    break 
                 # add each section of bytes to the hash algorithm
                 hashAlg.update(data)
             # Generate the checksum for the input file
             cksum = hashAlg.hexdigest()
         return cksum
-    # print any errors that occur
+    # print any errors that occur while opening or processing the file
     except IOError as msg:
        print('\nI/O error: %s\n' % (msg))
+    # end calcChecksum
