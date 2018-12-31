@@ -1,20 +1,17 @@
 ##Program Name
-======
-
+---
 Hash Check
 
 ##Lanuages Used:
-======
-
+---
 Python 3.7
 
 ##Program Description:
-======
-
+---
 A program that generates checksums of a file. It also accepts a key as an input. If a key is entered the checksum will be compared to the key.
 
 ##Program Outline:
-======
+---
 
 1. Start the Main() function.
 2. Analyze command line input using argparse.
