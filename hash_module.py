@@ -29,11 +29,11 @@ def calcChecksum(inFi, hashAlg, bufsiz):
     """
     try:
         with open(inFi, 'rb') as f:
-            # Read each byte of the file using the specified buffer size
+            # Read sections of the file using the specified buffer size
             while True:
                 data = f.read(bufsiz)
                 if not data:
-                    break 
+                    break  # end the loop when the file has been completely read
                 # add each section of bytes to the hash algorithm
                 hashAlg.update(data)
             # Generate the checksum for the input file
