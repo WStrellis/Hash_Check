@@ -40,7 +40,13 @@ is much easier to type than:
 
     systempropertiesadvanced.exe  
 
+    ![alt text](s3://staranen-images-001/step1.jpg "Open Run prompt")
+    ![alt text](https://s3.amazonaws.com/staranen-images-001/step1.jpg "Open Run prompt")
+
     Alternatively, press the Windows Key + Pause Key to open the System window and the click "Advanced System Settings" on the left side.  
+
+    ![alt text](s3://staranen-images-001/step1b.jpg "Open System Settings")  
+    ![alt text](https://s3.amazonaws.com/staranen-images-001/step1.jpg "Open System Settings")  
 
 4. Click "Environment Variables".  
 
@@ -81,3 +87,10 @@ is much easier to type than:
 5. Call verify() from the verify_module.py. Store the result in the “valid” variable.
 6. If a checksum was successfully generated call the results() function from results_module.py to display the results of the program.
 
+s3://staranen-images-001/step1.jpg
+s3://staranen-images-001/step1b.png
+s3://staranen-images-001/step2.png
+s3://staranen-images-001/step3.png
+s3://staranen-images-001/step4.png
+s3://staranen-images-001/step5.jpg
+s3://staranen-images-001/step6.jpg
