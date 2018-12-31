@@ -26,14 +26,15 @@ is much easier to type than:
 
 2. Create a batch file using a text editor. Save it as "hash_check.bat" and save in a folder for batch files.  
 
-    It must contain this line:    
-    @py.exe full\path\to\hash_check\hash_check_win.py %*  
+    It only needs this one line:    
+
+    @py.exe full\path\to\hash_check_win.py %*     
 
     *The name of the .bat file is what you will use to invoke the program on the command line!*
 
     If you name the file "potatoes.bat" and it has the above line of code, then you would run hash_check_win.py in a terminal by typing:  
 
-    `potatoes someFile.zzz`  
+    `potatoes someFile.exe`    
 
 3. Press the Windows Key + R to open the "Run" prompt. Enter the following command:  
 
