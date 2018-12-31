@@ -42,7 +42,7 @@ is much easier to type than:
 
     ![alt text](https://s3.amazonaws.com/staranen-images-001/step1.jpg "Open Run prompt")
 
-    Alternatively, press the Windows Key + Pause Key to open the System window and the click "Advanced System Settings" on the left side.  
+    Alternatively, press the Windows Key + Pause Key to open the System window and then click "Advanced System Settings" on the left side.  
 
     ![alt text](https://s3.amazonaws.com/staranen-images-001/step1b.png "Open System Settings")  
 
