@@ -1,16 +1,16 @@
-##Program Name
+## Program Name
 ---
 Hash Check
 
-##Languages Used:
+## Languages Used:
 ---
 Python 3.7
 
-##Program Description:
+## Program Description:
 ---
 A program that generates checksums of a file. It also accepts a key as an input. If a key is entered the checksum will be compared to the key.
 
-##Windows Setup
+## Windows Setup
 ---
 
 This is section describes how to add hash_check_win.py to your system path so that you can run it from any directory without entering the full path to the file.  
@@ -81,7 +81,7 @@ is much easier to type than:
     go back and check the environment variables and path settings.
 
 
-##Usage:
+## Usage:
 ---
 
 Arguments do not need to be placed in any particular order.
@@ -92,7 +92,7 @@ is the same as
 
 ` hash_check "some_file.x" --k ge35fs234 -a sha512 -v`
 
-###Required Arguments  
+### Required Arguments  
 
 **File**  
 
@@ -104,13 +104,19 @@ is the same as
 
 **Help**  
 
-` hash_check -h` ` hash_check --help`  
+```
+ hash_check -h
+ hash_check --help  
+ ```
 
 Show the help message.
 
 **Algorithm**  
 
-` hash_check "some_file.x" -a md5` ` hash_check "some_file.x" --algorithm md5`  
+```
+hash_check "some_file.x" -a md5  
+hash_check "some_file.x" --algorithm md5
+```  
 
 The algorithm used to generate a checksum. Lowercase characters only. If unspecified, the default algorithm is sha256.
 
@@ -127,7 +133,7 @@ Algorithms Available:
 
 **Key**  
 
-` hash_check "some_file.x" -k 4G5434GV54234DFHE`  
+` hash_check "some_file.x" -k 4G5434GV54234DFHE`   
 
 A key used to verify the integrity of the input file. Case insensitive.
 
@@ -147,36 +153,44 @@ Enable more detailed output messages.
 
 Only specifying an input file:
 
-```C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso"
-C92A9BAAFDD599DA057A97236F0A853CE1F8B3C7AD41E652CEBA493F9CA5623F```
+```
+C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso"
+C92A9BAAFDD599DA057A97236F0A853CE1F8B3C7AD41E652CEBA493F9CA5623F
+```
 
 Input file with Verbosity enabled:
 
-```C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" -v
+```
+C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" -v
 
  --- Results for linuxmint-19-cinnamon-64bit-v2.iso ---
  Hash Algorithm:     sha256
- Checksum Generated: C92A9BAAFDD599DA057A97236F0A853CE1F8B3C7AD41E652CEBA493F9CA5623F```
+ Checksum Generated: C92A9BAAFDD599DA057A97236F0A853CE1F8B3C7AD41E652CEBA493F9CA5623F
+ ```
 
  Changing the hash algorithm:
 
- ```C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" -a md5 -v
+ ```
+ C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" -a md5 -v
 
  --- Results for linuxmint-19-cinnamon-64bit-v2.iso ---
  Hash Algorithm:     md5
- Checksum Generated: 1F67BB3BD062DC754A35E2C7FA8414E9```
+ Checksum Generated: 1F67BB3BD062DC754A35E2C7FA8414E9
+ ```
 
  Validating a file by including a verification key:
 
- ```C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" -a md5 -k 1F67BB3BD062DC754A35E2C7FA8414E9 -v
+ ```
+ C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" -a md5 -k 1F67BB3BD062DC754A35E2C7FA8414E9 -v
 
  --- Results for linuxmint-19-cinnamon-64bit-v2.iso ---
  Hash Algorithm:     md5
  Checksum Generated: 1F67BB3BD062DC754A35E2C7FA8414E9
  Verification Key:   1F67BB3BD062DC754A35E2C7FA8414E9
- Validation Status:  True```
+ Validation Status:  True
+ ```
 
-##Program Outline:
+## Program Outline:
 ---
 
 1. Start the Main() function.
