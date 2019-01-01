@@ -2,9 +2,13 @@
 
 Hash Check
 
-## Languages Used:  
+## Language:  
 
 Python 3.7
+
+### Dependencies:
+
+None
 
 ## Program Description:  
 
