@@ -83,9 +83,18 @@ is much easier to type than:
 
 ##Usage:
 ---
+
+Arguments do not need to be placed in any particular order.
+
+` hash_check --key ge35fs234 -v "some_file.x" -a sha512`
+
+is the same as
+
+` hash_check "some_file.x" --k ge35fs234 -a sha512 -v`
+
 ###Required Arguments  
 
-*File*  
+**File**  
 
  The absolute or relative path to a file that you would like to process. Wrap the file in quotes:  
 
@@ -93,13 +102,13 @@ is much easier to type than:
 
 ### Optional Arguments
 
-*Help*  
+**Help**  
 
 ` hash_check -h` ` hash_check --help`  
 
 Show the help message.
 
-*Algorithm*  
+**Algorithm**  
 
 ` hash_check "some_file.x" -a md5` ` hash_check "some_file.x" --algorithm md5`  
 
@@ -116,13 +125,56 @@ Algorithms Available:
 * blake2b
 * blake2s
 
-*Key*  
+**Key**  
 
 ` hash_check "some_file.x" -k 4G5434GV54234DFHE`  
 
 A key used to verify the integrity of the input file. Case insensitive.
 
+**Buffer Size**
 
+` hash_check "some_file.x" -b 1024`  
+
+The buffer size used to read the input file. If unspecified, the system's default buffer size will be used.  
+
+**Verbose Output**
+
+` hash_check "some_file.x" -v`  
+
+Enable more detailed output messages.
+
+**Examples**
+
+Only specifying an input file:
+
+```C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso"
+C92A9BAAFDD599DA057A97236F0A853CE1F8B3C7AD41E652CEBA493F9CA5623F```
+
+Input file with Verbosity enabled:
+
+```C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" -v
+
+ --- Results for linuxmint-19-cinnamon-64bit-v2.iso ---
+ Hash Algorithm:     sha256
+ Checksum Generated: C92A9BAAFDD599DA057A97236F0A853CE1F8B3C7AD41E652CEBA493F9CA5623F```
+
+ Changing the hash algorithm:
+
+ ```C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" -a md5 -v
+
+ --- Results for linuxmint-19-cinnamon-64bit-v2.iso ---
+ Hash Algorithm:     md5
+ Checksum Generated: 1F67BB3BD062DC754A35E2C7FA8414E9```
+
+ Validating a file by including a verification key:
+
+ ```C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" -a md5 -k 1F67BB3BD062DC754A35E2C7FA8414E9 -v
+
+ --- Results for linuxmint-19-cinnamon-64bit-v2.iso ---
+ Hash Algorithm:     md5
+ Checksum Generated: 1F67BB3BD062DC754A35E2C7FA8414E9
+ Verification Key:   1F67BB3BD062DC754A35E2C7FA8414E9
+ Validation Status:  True```
 
 ##Program Outline:
 ---
