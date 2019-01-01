@@ -63,7 +63,7 @@ def main():
     if checkSum:
         # seperate the file name from the rest of the path
         fileName = pathSplit(args.file)[1]
-        results(fileName, args.algorithm, args.key.upper(), checkSum.upper(), valid, args.verbose )
+        results(fileName, args.algorithm,  checkSum.upper(),args.key.upper(), valid, args.verbose )
 
 #End main()
     
