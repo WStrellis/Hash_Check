@@ -3,14 +3,14 @@ def results(inFile, alg, ckSum, k, status, verbosity):
     Display the results of the program
     """
     baseMsg = (
-              " --- Results for {0} ---\n"
+              "\n --- Results for {0} ---\n"
               " Hash Algorithm:     {1}\n"
               " Checksum Generated: {2}\n"
               ) # end baseMsg
     
     extendedMsg = (
-              " Verification key:   {3}\n"
-              " Validation Status:  {4!s}\n"
+              " Verification Key:   {3}\n"
+              " Validation Status:  {4!s}"
                   ) #end extendedMsg
 
     # Input file/ NO key, default output

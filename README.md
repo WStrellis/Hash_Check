@@ -10,7 +10,7 @@ Python 3.7
 ---
 A program that generates checksums of a file. It also accepts a key as an input. If a key is entered the checksum will be compared to the key.
 
-##Windows Installation
+##Windows Setup
 ---
 
 This is section describes how to add hash_check_win.py to your system path so that you can run it from any directory without entering the full path to the file.  
@@ -83,6 +83,45 @@ is much easier to type than:
 
 ##Usage:
 ---
+###Required Arguments  
+
+*File*  
+
+ The absolute or relative path to a file that you would like to process. Wrap the file in quotes:  
+
+`hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso"`
+
+### Optional Arguments
+
+*Help*  
+
+` hash_check -h` ` hash_check --help`  
+
+Show the help message.
+
+*Algorithm*  
+
+` hash_check "some_file.x" -a md5` ` hash_check "some_file.x" --algorithm md5`  
+
+The algorithm used to generate a checksum. Lowercase characters only. If unspecified, the default algorithm is sha256.
+
+Algorithms Available:  
+
+* md5
+* sha1
+* sha224
+* sha256
+* sha384
+* sha512
+* blake2b
+* blake2s
+
+*Key*  
+
+` hash_check "some_file.x" -k 4G5434GV54234DFHE`  
+
+A key used to verify the integrity of the input file. Case insensitive.
+
 
 
 ##Program Outline:
