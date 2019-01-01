@@ -176,7 +176,14 @@ C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" -v
  Checksum Generated: 1F67BB3BD062DC754A35E2C7FA8414E9
  ```
 
- Validating a file by including a verification key:
+ Validating a file by including a verification key with default output:  
+
+ ```
+ C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" -a md5 -k 1F67BB3BD062DC754A35E2C7FA8414E9 
+ True
+ ```  
+
+ Validating a file by including a verification key with verbosity:
 
  ```
  C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" -a md5 -k 1F67BB3BD062DC754A35E2C7FA8414E9 -v
