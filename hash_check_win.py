@@ -2,7 +2,11 @@
 
 import argparse
 
+# get the default buffer size of the system
 from io import DEFAULT_BUFFER_SIZE as getSysBuffSize
+
+# Used to seperate file name from the rest of the path
+from os.path import split as pathSplit
 
 from hash_module import calcChecksum, getAlg
 from verify_module import verify
@@ -45,6 +49,7 @@ def main():
     # create  a list of arguments passed to the command line
     args = parser.parse_args()
 
+
     # Set the correct hashing algorithm
     hashSelection = getAlg(args.algorithm)
 
@@ -56,7 +61,9 @@ def main():
 
     # Output results if a checksum was generated
     if checkSum:
-        results(args.file, args.algorithm, args.key.upper(), checkSum.upper(), valid, args.verbose )
+        # seperate the file name from the rest of the path
+        fileName = pathSplit(args.file)[1]
+        results(fileName, args.algorithm, args.key.upper(), checkSum.upper(), valid, args.verbose )
 
 #End main()
     
