@@ -1,6 +1,8 @@
 #! /usr/bin/env python3.7
 
-import argparse, io
+import argparse
+
+from io import DEFAULT_BUFFER_SIZE as getSysBuffSize
 
 from hash_module import calcChecksum, getAlg
 from verify_module import verify
@@ -31,7 +33,7 @@ def main():
 
     # Buffer size 
     parser.add_argument("-b", "--buffer",
-                         default= io.DEFAULT_BUFFER_SIZE,
+                         default= getSysBuffSize,
                          type=int,
                          help="The buffer size used to read the input file. If unspecified, the system's default buffer size will be used.")
 
