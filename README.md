@@ -10,6 +10,18 @@ Python 3.7
 
 A program that generates checksums of a file. It also accepts a key as an input. If a key is entered the checksum will be compared to the key.
 
+Example:
+
+```
+ C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" --algorithm md5 --key 1F67BB3BD062DC754A35E2C7FA8414E9 -v
+
+ --- Results for linuxmint-19-cinnamon-64bit-v2.iso ---
+ Hash Algorithm:     md5
+ Checksum Generated: 1F67BB3BD062DC754A35E2C7FA8414E9
+ Verification Key:   1F67BB3BD062DC754A35E2C7FA8414E9
+ Validation Status:  True
+ ```
+
 ## Windows Setup  
 
 This is section describes how to add hash_check_win.py to your system path so that you can run it from any directory without entering the full path to the file.  
