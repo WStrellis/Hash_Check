@@ -56,11 +56,11 @@ def main():
     #calculate the checksum
     checkSum = calcChecksum(args.file, hashSelection, args.buffer)
 
-    # Validate input file. Will set 'valid' to 'False' if no verification key is entered.
-    valid = verify(checkSum, args.key)
-
-    # Output results if a checksum was generated
     if checkSum:
+
+        # Validate input file. Will set 'valid' to 'False' if no verification key is entered.
+        valid = verify(checkSum, args.key)
+
         # seperate the file name from the rest of the path
         fileName = pathSplit(args.file)[1]
         results(fileName, args.algorithm,  checkSum.upper(),args.key.upper(), valid, args.verbose )
