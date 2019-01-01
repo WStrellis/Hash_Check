@@ -1,17 +1,16 @@
-## Program Name
----
+## Program Name  
+
 Hash Check
 
-## Languages Used:
----
+## Languages Used:  
+
 Python 3.7
 
-## Program Description:
----
+## Program Description:  
+
 A program that generates checksums of a file. It also accepts a key as an input. If a key is entered the checksum will be compared to the key.
 
-## Windows Setup
----
+## Windows Setup  
 
 This is section describes how to add hash_check_win.py to your system path so that you can run it from any directory without entering the full path to the file.  
 
@@ -82,7 +81,6 @@ is much easier to type than:
 
 
 ## Usage:
----
 
 Arguments do not need to be placed in any particular order.
 
@@ -191,7 +189,6 @@ C:\Users\wstre>hash_check "D:\Downloads\linuxmint-19-cinnamon-64bit-v2.iso" -v
  ```
 
 ## Program Outline:
----
 
 1. Start the Main() function.
 2. Analyze command line input using argparse.
