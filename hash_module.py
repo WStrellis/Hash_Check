@@ -1,32 +1,24 @@
 import hashlib
  
 
-def getAlg(choice):
-    """
-    Set the correct hash algorithm based on user input
-    """
-    if choice == 'md5':
-        return hashlib.md5()
-    elif choice == 'sha1':
-        return hashlib.sha1()
-    elif choice == 'sha224':
-        return hashlib.sha224()
-    elif choice == 'sha256':
-        return hashlib.sha256()
-    elif choice == 'sha384':
-        return hashlib.sha384()
-    elif choice == 'sha512':
-        return hashlib.sha512()
-    elif choice == 'blake2b':
-        return hashlib.blake2b()
-    elif choice == 'blake2s':
-        return hashlib.blake2s()
-    # end getAlg
-
-def calcChecksum(inFi, hashAlg, bufsiz):
+def calcChecksum(inFi, alg, bufsiz):
     """
     Calculate the checksum of the input file
     """
+    hashAlgs = {
+    'md5': hashlib.md5(),
+    'sha1': hashlib.sha1(),
+    'sha224': hashlib.sha224(),
+    'sha256': hashlib.sha256(),
+    'sha384': hashlib.sha384(),
+    'sha512': hashlib.sha512(),
+    'blake2b': hashlib.blake2b(),
+    'blake2s': hashlib.blake2s(),
+                } # end hashAlgs
+
+    # Select the hash algorithm to use
+    hashAlg = hashAlgs[alg]
+
     try:
         with open(inFi, 'rb') as f:
             # Read sections of the file using the specified buffer size
